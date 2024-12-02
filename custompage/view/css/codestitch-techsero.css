@@ -2543,7 +2543,6 @@ html {
     text-align: center;
   }
   #services-1629 .cs-title {
-    max-width: 20ch;
     text-align: center;
   }
   #services-1629 .cs-text {
@@ -2575,7 +2574,6 @@ html {
   }
   #services-1629 .cs-item {
     list-style: none;
-    max-width: 25rem;
     width: 100%;
     margin: 0;
     box-sizing: border-box;
