@@ -2566,7 +2566,7 @@ html {
     width: 100%;
     margin: 0;
     padding: 0;
-    display: grid;
+    display: contents;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     row-gap: 2.5rem;
     /* 16px - 40px */
@@ -2652,6 +2652,12 @@ html {
   #services-1629 .cs-button-solid:hover:before {
     width: 100%;
   }
+}
+/* Newer phone - ??px */
+@media only screen and (min-width: 22rem) {
+    #services-1629 .cs-card-group {
+        display: grid;
+    }
 }
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
