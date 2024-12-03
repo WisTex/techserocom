@@ -146,6 +146,7 @@ function custompage_home_redirect_loggedin(&$ret) {
     if (method_exists($module, 'get')) {
         App::$page['content'] = $module->get();
     }
+    App::$page['content'] .= replace_macros(get_markup_template('footer_custom.tpl', 'addon/custompage'), []);
     construct_page();
     killme();
 }
