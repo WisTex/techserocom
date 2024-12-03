@@ -290,7 +290,10 @@
         <a href="https://techsero.net/submitticket.php?step=2&deptid=4" class="cs-button-solid">Contact Us for More Details</a>
     </div>
 </section>
-                                
+
+
+{{$whatsnew}}
+
 
 <!-- ============================================ -->
 <!--                     CTA                      -->
@@ -330,14 +333,16 @@
                 <div class="info-text"><small>We accept American&nbsp;Express, Discover&nbsp;Network, MasterCard, Visa, JCB, UnionPay, Diner's&nbsp;Club&nbsp;International, Zelle, PayPal, and PayPal&nbsp;Credit.</small></div>
                 
                 <div class="info-text">
-                <img src="/images/cards/amex.png" alt="American Express" title="American Express">
-                
-                <img src="/images/cards/discover.png" alt="Discover Network" title="Discover Network">
-                <img src="/images/cards/mastercard.png" alt="MasterCard" title="MasterCard">
-                <img src="/images/cards/visa.png" alt="Visa" title="Visa">
-                <img src="/images/cards/dinersclub.png" alt="Diner's Club International" title="Diner's Club International">
-                <img src="/images/cards/jcb.png" alt="JCB" title="JCB">
-                <img src="/images/cards/unionpay.png" alt="UnionPay" title="UnionPay"><img src="/images/cards/paypal.png" alt="PayPal" title="PayPal"><img src="/images/cards/zelle.png" alt="Zelle" title="Zelle"><img src="/images/cards/net30.png" alt="NET 30" title="NET 30">
+                <img src="addon/custompage/images/cards/amex.png" alt="American Express" title="American Express">
+                <img src="addon/custompage/images/cards/discover.png" alt="Discover Network" title="Discover Network">
+                <img src="addon/custompage/images/cards/mastercard.png" alt="MasterCard" title="MasterCard">
+                <img src="addon/custompage/images/cards/visa.png" alt="Visa" title="Visa">
+                <img src="addon/custompage/images/cards/dinersclub.png" alt="Diner's Club International" title="Diner's Club International">
+                <img src="addon/custompage/images/cards/jcb.png" alt="JCB" title="JCB">
+                <img src="addon/custompage/images/cards/unionpay.png" alt="UnionPay" title="UnionPay">
+                <img src="addon/custompage/images/cards/paypal.png" alt="PayPal" title="PayPal">
+                <img src="addon/custompage/images/cards/zelle.png" alt="Zelle" title="Zelle">
+                <img src="addon/custompage/images/cards/net30.png" alt="NET 30" title="NET 30">
                 </div>
                 <!--
                 <div class="info-text"><small>TechSero also offers NET 30 terms for U.S. businesses, with approved credit.</small></div>

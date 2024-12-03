@@ -96,7 +96,7 @@
     <div class="cs-container">
         <div class="cs-content">
             <span class="cs-topper">Our Services</span>
-            <h2 class="cs-title">We’re Commited to Deliver Top High Quality Services</h2>
+            <h2 class="cs-title">A Commitment to Delivering Top, High-Quality Services</h2>
         </div>
         <ul class="cs-card-group">
             <li class="cs-item">

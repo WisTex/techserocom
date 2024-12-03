@@ -30,25 +30,33 @@ use Zotlabs\Module\Contentcreation;
 
 class CustomPage {
     const _CUSTOM_PAGES = ['webdesign', 'hubzilla', 'contentcreation', 'webservices', 'main'];
-    const _ENABLE_SIDEBAR = false;
+    private static $_assetsLoaded = false;
     public static function loadAssets(): void {
-        if (file_exists(PROJECT_BASE . '/addon/custompage/view/js/custompage.js'))
-            head_add_js('/addon/custompage/view/js/custompage.js');
-
-        if (file_exists(PROJECT_BASE . '/addon/custompage/view/js/codestitch-techsero.js'))
-            head_add_js('/addon/custompage/view/js/codestitch-techsero.js');           
-
-        if (file_exists(PROJECT_BASE . '/addon/custompage/view/css/custompage.css'))
-            head_add_css('/addon/custompage/view/css/custompage.css');
-
-        if (file_exists(PROJECT_BASE . '/addon/custompage/view/css/codestitch.css'))
-            head_add_css('/addon/custompage/view/css/codestitch.css');
-
-        if (file_exists(PROJECT_BASE . '/addon/custompage/view/css/codestitch-techsero.css'))
-            head_add_css('/addon/custompage/view/css/codestitch-techsero.css');
-
+        if (!self::$_assetsLoaded) {
+            if (in_array(App::$module, array_merge(self::_CUSTOM_PAGES, ['home']))) {
+                // Styles for the homepage and other _CUSTOM_PAGES pages
+                if (file_exists(PROJECT_BASE . '/addon/custompage/view/js/custompage.js'))
+                    head_add_js('/addon/custompage/view/js/custompage.js');
+    
+                if (file_exists(PROJECT_BASE . '/addon/custompage/view/js/codestitch-techsero.js'))
+                    head_add_js('/addon/custompage/view/js/codestitch-techsero.js');           
+    
+                if (file_exists(PROJECT_BASE . '/addon/custompage/view/css/custompage.css'))
+                    head_add_css('/addon/custompage/view/css/custompage.css');
+    
+                if (file_exists(PROJECT_BASE . '/addon/custompage/view/css/codestitch.css'))
+                    head_add_css('/addon/custompage/view/css/codestitch.css');
+    
+                if (file_exists(PROJECT_BASE . '/addon/custompage/view/css/codestitch-techsero.css'))
+                    head_add_css('/addon/custompage/view/css/codestitch-techsero.css');
+            } else {
+                // Styles for all other pages
+                if (file_exists(PROJECT_BASE . '/addon/custompage/view/css/backend-custom.css'))
+                    head_add_css('/addon/custompage/view/css/backend-custom.css');            
+            }
+            self::$_assetsLoaded = true;
+        }
     }
-
 }
 
 /**
@@ -180,11 +188,8 @@ function custompage_customize_header(&$content) {
         // head_add_css('/addon/custompage/view/css/custompage.css');
         // head_add_css('/addon/custompage/view/css/codestitch.css');
         // head_add_css('/addon/custompage/view/css/codestitch-techsero.css');
-        CustomPage::loadAssets();
-        if (!CustomPage::_ENABLE_SIDEBAR) {
-            $content = preg_replace('/<aside[^>]*>.+?<\/aside>/s', "", $content);
-        }
     }
+    CustomPage::loadAssets();
 }
 
 /** 

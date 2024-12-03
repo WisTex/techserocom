@@ -11,6 +11,7 @@ namespace Zotlabs\Module;
 use App;
 use Zotlabs\Lib\Apps;
 use Zotlabs\Web\Controller;
+use Zotlabs\Widget\Whats_new;
 
 // Webdesign class "controller" logic for the plugin's "webdesign" route
 class Main extends Controller {
@@ -35,13 +36,21 @@ class Main extends Controller {
 
 	// Generic handler for a HTTP GET request (e.g., viewing the page normally)
 	public function get(): string {
+		require_once(PROJECT_BASE . '/widget/Whats_new/Whats_new.php');
+		$whatsNewWidget = new Whats_new();
 		// Create page sections, inserting template vars
         $content = replace_macros(get_markup_template($this->_moduleName . ".tpl", 'addon/custompage'), [
 			'$action_url' => $this->_moduleName,
 			'$form_security_token' => get_form_security_token($this->_moduleName),
 			'$title' => t('Web Design'),
 			'$content' => t('Page content goes here.'),
-			'$submit' => t('Submit')
+			'$submit' => t('Submit'),
+			'$whatsnew' => $whatsNewWidget->widget([
+				'channel_id' => 2,
+				'num_posts' => 3,
+				'blurb_length' => 200,
+				'widget_title' => t('Inside the Buzz at Techsero. . .')
+			]),
 		]);
 		//$footer = replace_macros(get_markup_template("footer_custom.tpl", 'addon/custompage'), []);        
 
