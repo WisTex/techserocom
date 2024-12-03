@@ -46,8 +46,8 @@ class Main extends Controller {
 			'$content' => t('Page content goes here.'),
 			'$submit' => t('Submit'),
 			'$whatsnew' => $whatsNewWidget->widget([
-				// 'channel_id' => 2, // dev site
-				'channel_id' => 3, // live site
+				'channel_id' => 2, // dev site
+				// 'channel_id' => 3, // live site
 				'num_posts' => 3,
 				'blurb_length' => 200,
 				'widget_title' => t('Inside the Buzz at Techsero. . .')
