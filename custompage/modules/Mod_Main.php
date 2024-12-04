@@ -46,11 +46,13 @@ class Main extends Controller {
 			'$content' => t('Page content goes here.'),
 			'$submit' => t('Submit'),
 			'$whatsnew' => $whatsNewWidget->widget([
+				'tpl_root' => 'addon/custompage',
+				'widget_title' => t('Inside the Buzz at Techsero. . .'),
 				'channel_id' => 2, // dev site
 				// 'channel_id' => 3, // live site
 				'num_posts' => 3,
 				'blurb_length' => 200,
-				'widget_title' => t('Inside the Buzz at Techsero. . .')
+				'default_img' => 'addon/custompage/images/whats_new/default.webp'
 			]),
 		]);
 		//$footer = replace_macros(get_markup_template("footer_custom.tpl", 'addon/custompage'), []);        

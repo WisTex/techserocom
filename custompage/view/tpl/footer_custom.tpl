@@ -14,7 +14,7 @@
         <div class="cs-top">
             <!--Warpped logo in wrapper div so that div can be 100% width to force the lists below it to stay in their line.  The cs-logo can maintain its' max width. we didn't want it 100% width becuase then the blank area to the right of the logo will also result in a click and hover event. -->
             <div class="cs-logo-wrapper">
-                <a href="" class="cs-logo">
+                <a href="https://wistex.com" class="cs-logo">
                     <img src="https://wistex.com/images/wt_4.gif" alt="logo" aria-hidden="true" loading="lazy" decoding="async" !width="210" !height="80">
                 </a>
             </div>
@@ -23,10 +23,10 @@
                     <span class="cs-header">Quick Links</span>
                 </li>
                 <li class="cs-li">
-                    <a href="" class="cs-link">Services</a>
+                    <a href="webservices" class="cs-link">Services</a>
                 </li>
                 <li class="cs-li">
-                    <a href="" class="cs-link">Contact us</a>
+                    <a href="https://techsero.net/submitticket.php?step=2&deptid=4" class="cs-link">Contact us</a>
                 </li>
                 <!--
                 <li class="cs-li">
@@ -39,16 +39,16 @@
                     <span class="cs-header">Websites</span>
                 </li>
                 <li class="cs-li">
-                    <a href="" class="cs-link">WisTex.com</a>
+                    <a href="https://wistex.com" class="cs-link">WisTex.com</a>
                 </li>
                 <li class="cs-li">
-                    <a href="" class="cs-link">TechSero.com</a>
+                    <a href="/" class="cs-link">TechSero.com</a>
                 </li>
                 <li class="cs-li">
-                    <a href="" class="cs-link">TechSero.net</a>
+                    <a href="https://techsero.net" class="cs-link">TechSero.net</a>
                 </li>                
                 <li class="cs-li">
-                    <a href="" class="cs-link">Unbranded.Social</a>
+                    <a href="https://unbranded.social" class="cs-link">Unbranded.Social</a>
                 </li>
             </ul>
             <ul class="cs-ul cs-contact-ul">
@@ -56,19 +56,19 @@
                     <span class="cs-header">Contact</span>
                 </li>
                 <li class="cs-li">
-                    <a href="tel:555-456 7899" class="cs-link">
+                    <a href="tel:713-930-1771" class="cs-link">
                         <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fphone-stroke-grey1.svg" alt="icon" loading="lazy" decoding="async" width="24" height="24" aria-hidden="true">
                         +1 (713) 930 1771
                     </a>
                 </li>
                 <li class="cs-li">
-                    <a href="mailto:info@example.com" class="cs-link">
+                    <a href="mailto:support@techsero.com" class="cs-link">
                         <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fmail-stroke-grey1.svg" alt="icon" loading="lazy" decoding="async" width="24" height="24" aria-hidden="true">
                         support@techsero.com
                     </a>
                 </li>
                 <li class="cs-li">
-                    <a href="" class="cs-link" target="_blank" rel="noopener">
+                    <a href="/" class="cs-link" target="_blank" rel="noopener">
                         <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fpin-stroke-grey1.svg" alt="icon" loading="lazy" decoding="async" width="24" height="24" aria-hidden="true">
                         2001 Timberloch Place
                         <br>Suite 551D
@@ -82,22 +82,22 @@
             <!--Navigation-->
             <ul class="cs-nav">
                 <li class="cs-nav-li">
-                    <a href="" class="cs-nav-link">Home</a>
+                    <a href="/" class="cs-nav-link">Home</a>
                 </li>
                 <li class="cs-nav-li">
-                    <a href="" class="cs-nav-link">Web Design</a>
+                    <a href="webdesign" class="cs-nav-link">Web Design</a>
                 </li>
                 <li class="cs-nav-li">
-                    <a href="" class="cs-nav-link">Hubzilla</a>
+                    <a href="hubzilla" class="cs-nav-link">Hubzilla</a>
                 </li>
                 <li class="cs-nav-li">
-                    <a href="" class="cs-nav-link">Domain Names</a>
+                    <a href="https://techsero.net/cart.php?a=add&domain=register" class="cs-nav-link">Domain Names</a>
                 </li>
                 <li class="cs-nav-li">
-                    <a href="" class="cs-nav-link">VPN</a>
+                    <a href="https://techsero.net/store/nordvpn" class="cs-nav-link">VPN</a>
                 </li>
                 <li class="cs-nav-li">
-                    <a href="" class="cs-nav-link">Professional Email</a>
+                    <a href="https://techsero.net/store/professional-email" class="cs-nav-link">Professional Email</a>
                 </li>
             </ul>
             <!--Social-->  <!-- TODO Will add links to Hubzilla channels here instead of Facebook, etc. -->
