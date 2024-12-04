@@ -9,7 +9,7 @@
                 <span class="cs-topper">Content Management</span>
                 <h2 class="cs-title">{{$widget_title}}</h2>
             </div>
-            <a href="channel/randall" class="cs-button-solid">View All</a>
+            <a href="channel/{{$posts[0].channel_address}}" class="cs-button-solid">View All</a>
         </div>
         <ul class="cs-card-group">
         {{foreach $posts as $post}}
@@ -23,10 +23,10 @@
                         <img loading="lazy" decoding="async" src="{{$post.image}}" alt="stylist" width="413" height="480">
                     {{else}}
                         <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/salon10.jpg">
+                        <source media="(max-width: 600px)" srcset="{{$default_img}}">
                         <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/salon10.jpg">
-                        <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/salon10.jpg" alt="stylist" width="413" height="480">
+                        <source media="(min-width: 601px)" srcset="{{$default_img}}">
+                        <img loading="lazy" decoding="async" src="{{$default_img}}" alt="stylist" width="413" height="480">
                     {{/if}}
                 </picture>
                 <div class="cs-info">
