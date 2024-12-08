@@ -45,11 +45,21 @@ class Webservices extends Controller {
 		]);
 		//$footer = replace_macros(get_markup_template("footer_custom.tpl", 'addon/custompage'), []);        
 
+		// Set page metadata
+		$thisUrl = z_root() . "/" . $this->_moduleName;
+        App::$page['title'] = "Web Services - TechSero";
+		App::$meta->set('description', 'A Commitment to Delivering Top, High-Quality Web Services. We provide a variety of products and services to suit your needs.');
+		head_add_link(['rel' => 'canonical', 'href' => $thisUrl]);
+		App::$meta->set('og:type', 'website');
+		App::$meta->set('og:title', App::$page['title']);
+        App::$meta->set('og:url', $thisUrl);
+        App::$meta->set('og:description', App::$meta->get_field('description'));
+		App::$meta->set('og:image', z_root() . '/addon/custompage/images/techsero-logo-plain-reverse.png');
+
 		// Return/Render content in the plugin template's "content" region
 		//return $content;
         //die(print_r(App::$page));
 		//die(print_r(App::$pdl));
-        App::$page['title'] = "Web Services - TechSero";
         App::$page['content'] = $content;
         //App::$page['footer'] = $footer;
 	}
