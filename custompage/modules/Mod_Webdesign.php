@@ -45,11 +45,21 @@ class Webdesign extends Controller {
 		]);
 		//$footer = replace_macros(get_markup_template("footer_custom.tpl", 'addon/custompage'), []);        
 
+		// Set page metadata
+		$thisUrl = z_root() . "/" . $this->_moduleName;
+        App::$page['title'] = "Web Design & Development - TechSero";
+		App::$meta->set('description', 'We specialize in custom websites, including small business websites, membership websites, forum communities, project management, content management, and more.');
+		head_add_link(['rel' => 'canonical', 'href' => $thisUrl]);
+		App::$meta->set('og:type', 'website');
+		App::$meta->set('og:title', App::$page['title']);
+        App::$meta->set('og:url', $thisUrl);
+        App::$meta->set('og:description', App::$meta->get_field('description'));
+		App::$meta->set('og:image', z_root() . '/addon/custompage/images/techsero-logo-plain-reverse.png');
+
 		// Return/Render content in the plugin template's "content" region
 		//return $content;
         //die(print_r(App::$page));
 		//die(print_r(App::$pdl));
-        App::$page['title'] = "Web Design & Development - TechSero";
         App::$page['content'] = $content;
         //App::$page['footer'] = $footer;
 	}

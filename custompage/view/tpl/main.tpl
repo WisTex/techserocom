@@ -6,7 +6,7 @@
     <div class="cs-container">
         <!--Nav Logo-->
         <a href="" class="cs-logo" aria-label="back to home">
-            <img src="https://techsero.com/images/techsero-logo-plain-reverse.png" alt="logo" !width="210" height="50" aria-hidden="true" decoding="async">
+            <img src="addon/custompage/images/techsero-logo-plain-reverse.png" alt="logo" !width="210" height="50" aria-hidden="true" decoding="async">
         </a>
         <!--Navigation List-->
         <nav class="cs-nav" role="navigation">
