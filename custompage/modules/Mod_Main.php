@@ -48,8 +48,7 @@ class Main extends Controller {
 			'$whatsnew' => $whatsNewWidget->widget([
 				'tpl_root' => 'addon/custompage',
 				'widget_title' => t('Inside the Buzz at Techsero. . .'),
-				'channel_id' => 2, // dev site
-				// 'channel_id' => 3, // live site
+				'channel_id' => App::$config['app']['primary_channel_id'] ?? 2,
 				'num_posts' => 3,
 				'blurb_length' => 200,
 				'default_img' => 'addon/custompage/images/whats_new/default.webp'
