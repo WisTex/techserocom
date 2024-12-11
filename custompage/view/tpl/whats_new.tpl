@@ -35,12 +35,12 @@
                         {{date('d M, Y', $post.created)}}
                     </span>
                     {{if $post.title}}
-                        <h3 class="cs-h3"><a href="{{$post.mid}}">{{$post.title}}</a></h3>
+                        <h3 class="cs-h3"><a href="{{$post.postUrl}}">{{$post.title}}</a></h3>
                     {{/if}}
                     <span class="cs-desc">
                         {{$post.blurb}}
                     </span>
-                    <a href="{{$post.mid}}" class="cs-link">Read More</a>
+                    <a href="{{$post.postUrl}}" class="cs-link">Read More</a>
                 </div>
             </li>
         {{/foreach}}

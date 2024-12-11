@@ -29,7 +29,7 @@ use Zotlabs\Module\Webservices;
 use Zotlabs\Module\Contentcreation;
 
 class CustomPage {
-    const _CUSTOM_PAGES = ['webdesign', 'hubzilla', 'contentcreation', 'webservices', 'main'];
+    const _CUSTOM_PAGES = ['webdesign', 'hubzilla', 'webservices'];
     private static $_assetsLoaded = false;
     public static function loadAssets(): void {
         if (!self::$_assetsLoaded) {
