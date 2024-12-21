@@ -103,8 +103,10 @@ function custompage_unload() {
  * @param $user: A reference to App::$account or App::$user
 */
 function custompage_logged_in(&$user) {
-	goaway(z_root() . "/hq");
-	killme();
+    if (App::$module != 'regate') {
+        goaway(z_root() . "/hq");
+        killme();
+    }
 }
 
 /** 
