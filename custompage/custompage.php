@@ -21,20 +21,13 @@ use Zotlabs\Extend\Hook;
 use Zotlabs\Extend\Route;
 use Zotlabs\Render\Comanche;
 
-// Addon Modules
-use Zotlabs\Module\Webdesign;
-use Zotlabs\Module\Hubzilla;
-use Zotlabs\Module\Main;
-use Zotlabs\Module\Webservices;
-use Zotlabs\Module\Contentcreation;
-
 class CustomPage {
-    const _CUSTOM_PAGES = ['webdesign', 'hubzilla', 'webservices'];
+    private static $_customPages = ['webdesign', 'hubzilla', 'webservices'];
     private static $_assetsLoaded = false;
     public static function loadAssets(): void {
         if (!self::$_assetsLoaded) {
-            if (in_array(App::$module, array_merge(self::_CUSTOM_PAGES, ['home']))) {
-                // Styles for the homepage and other _CUSTOM_PAGES pages
+            if (in_array(App::$module, array_merge(self::getCustomPages(), ['home']))) {
+                // Styles for the homepage and other $_customPages pages
                 if (file_exists(PROJECT_BASE . '/addon/custompage/view/js/custompage.js'))
                     head_add_js('/addon/custompage/view/js/custompage.js');
     
@@ -57,6 +50,12 @@ class CustomPage {
             self::$_assetsLoaded = true;
         }
     }
+    public static function getCustomPages(): array {
+        return self::$_customPages;
+    }
+    public static function setCustomPages(array $customPages): void {
+        self::$_customPages = $customPages;
+    }    
 }
 
 /**
@@ -117,7 +116,7 @@ function custompage_home_redirect(&$o) {
 	//header("Location: " . z_root() . "/main", true, 301);
 	//killme();
     require_once('addon/custompage/modules/Mod_Main.php');
-    $module = new Main();
+    $module = new Zotlabs\Module\Main();
     if (method_exists($module, 'init')) {
         $module->init();
     }
@@ -138,7 +137,7 @@ function custompage_home_redirect(&$o) {
 function custompage_home_redirect_loggedin(&$ret) {
     //$ret['startpage'] = z_root() . "/main";
     require_once('addon/custompage/modules/Mod_Main.php');
-    $module = new Main();
+    $module = new Zotlabs\Module\Main();
     $module->_moduleName = 'main';
     $pdl = @file_get_contents('addon/custompage/pdl/mod_main.pdl');
     App::$comanche = new Comanche();
@@ -160,7 +159,7 @@ function custompage_home_redirect_loggedin(&$ret) {
  * @param $arr: A reference to current module
 */
 function custompage_load_module(&$arr) {
-	if (in_array($arr['module'], CustomPage::_CUSTOM_PAGES)) {
+	if (in_array($arr['module'], CustomPage::getCustomPages())) {
         //$type = ucfirst($arr['module']);
 		//require_once('addon/custompage/modules/Mod_' . $type . '.php');
         //$arr['controller'] = new $type();
@@ -175,7 +174,7 @@ function custompage_load_module(&$arr) {
 function custompage_load_pdl(&$arr) {
     //die(print_r($arr));
 	$pdl = 'addon/custompage/pdl/mod_' . $arr['module'] . '.pdl';
-    if (in_array($arr['module'], CustomPage::_CUSTOM_PAGES) && file_exists($pdl)) {
+    if (in_array($arr['module'], CustomPage::getCustomPages()) && file_exists($pdl)) {
         $arr['layout'] = @file_get_contents($pdl);
 	}
 }
@@ -186,7 +185,7 @@ function custompage_load_pdl(&$arr) {
 */
 function custompage_customize_header(&$content) {
     // Replace Neuhub page header with a custom header
-    if (in_array(App::$module, CustomPage::_CUSTOM_PAGES)) {
+    if (in_array(App::$module, CustomPage::getCustomPages())) {
         //$content = replace_macros(get_markup_template('header_custom.tpl', 'addon/custompage'), []);
         // head_add_css('/addon/custompage/view/css/custompage.css');
         // head_add_css('/addon/custompage/view/css/codestitch.css');
@@ -201,7 +200,7 @@ function custompage_customize_header(&$content) {
 */
 function custompage_customize_footer(&$content) {
     // Replace Neuhub page footer with a custom footer
-    if (in_array(App::$module, CustomPage::_CUSTOM_PAGES)) {
+    if (in_array(App::$module, CustomPage::getCustomPages())) {
         $content .= replace_macros(get_markup_template('footer_custom.tpl', 'addon/custompage'), []);
     }
 }
