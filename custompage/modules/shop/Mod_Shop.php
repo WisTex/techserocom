@@ -37,8 +37,15 @@ class Shop extends Controller {
 	public function get(): void {
 		// Create page sections, inserting template vars
 		$tpl = (isset(App::$cache['shop_payment_success'])) ? ((App::$cache['shop_payment_success']) ? 'success' : 'failure') : $this->_moduleName;
-		$content = replace_macros(get_markup_template($tpl . ".tpl", 'addon/shop'), [
-			'$isLoggedIn' => get_account_id() !== false,
+		$aid = get_account_id();
+		$content = replace_macros(get_markup_template($tpl . ".tpl", 'addon/custompage/view/tpl/shop'), [
+			'$isLoggedIn' => $aid !== false,
+			'$acctEmail' => (($aid !== false) ? App::$account['account_email'] : ''),
+			'$queryStr' => array_map(fn($str) => htmlspecialchars($str, ENT_QUOTES), $_GET),
+			'$plans' => \Shop::_PLANS,
+			'$termLength' => \Shop::_TERM_LENGTH,
+			'$termUnits' => \Shop::_TERM_UNITS,
+			'$duplicate' => App::$cache['shop_payment_duplicate'] ?? [],
 			'$title' => t('Shop'),
 			'$content' => t('Page content goes here.')
 		]);

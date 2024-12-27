@@ -1424,6 +1424,22 @@ html {
         height: 0.75rem;
         transition: filter 0.3s;
     }
+    #services-1378 .cs-transaction-details {
+        width: 4rem;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    #services-1378 .cs-transaction-details th, #services-1378 .cs-transaction-details td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+    #services-1378 .cs-transaction-details th {
+        background-color: #f4f4f4;
+    }    
+    #services-1378 .cs-transaction-details td:first-child {
+        white-space: nowrap;
+    } 
 }
 /* Tablet - 600px */
 @media only screen and (min-width: 37.5rem) {
