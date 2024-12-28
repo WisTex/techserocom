@@ -85,33 +85,35 @@
         <div class="cs-content">
             <h3>There was an issue with your payment.</h3>
             <p class="cs-text pb-3">Please log into your PayPal account or contact PayPal to obtain more details about this issue and transaction. <i>Note: If you're payment is pending or delayed, then your subscription will automatically begin when your payment is completed.</i></p>
-            <h5 class="pt-3 mb-0">Transaction Details</h5>
-            <table class="cs-transaction-details">
-                <tr>
-                    <th>Detail</th>
-                    <th>Value</th>
-                </tr>
-                <tr>
-                    <td>Transaction ID</td>
-                    <td>{{$queryStr['tx']}}</td>
-                </tr>
-                <tr>
-                    <td>Payment Status</td>
-                    <td>{{$queryStr['st']}}</td>
-                </tr>
-                <tr>
-                    <td>Amount</td>
-                    <td>{{$queryStr['amt']}} {{$queryStr['cc']}}</td>
-                </tr>
-                <tr>
-                    <td>Plan</td>
-                    <td>{{ucfirst($plans[$queryStr['amt']])}} ({{$termLength}} {{$termUnits}})</td>
-                </tr>
-                <tr>
-                    <td>Account Email</td>
-                    <td>{{$acctEmail}}</td>
-                </tr>
-            </table>            
+            {{if !empty($txData)}}
+                <h5 class="pt-3 mb-0">Transaction Details</h5>
+                <table class="cs-transaction-details">
+                    <tr>
+                        <th>Detail</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Transaction ID</td>
+                        <td>{{$txData['txn_id']}}</td>
+                    </tr>
+                    <tr>
+                        <td>Payment Status</td>
+                        <td>{{strtoupper($txData['payment_status'])}}</td>
+                    </tr>
+                    <tr>
+                        <td>Amount</td>
+                        <td>{{$txData['payment_gross']}} {{$txData['mc_currency']}}</td>
+                    </tr>
+                    <tr>
+                        <td>Plan</td>
+                        <td>{{ucfirst($plans[$txData['payment_gross']])}} ({{$termLength}} {{$termUnits}})</td>
+                    </tr>
+                    <tr>
+                        <td>Account Email</td>
+                        <td>{{$acctEmail}}</td>
+                    </tr>
+                </table> 
+            {{/if}}           
         </div>
     </div>
 </section>

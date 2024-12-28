@@ -41,7 +41,8 @@ class Shop extends Controller {
 		$content = replace_macros(get_markup_template($tpl . ".tpl", 'addon/custompage/view/tpl/shop'), [
 			'$isLoggedIn' => $aid !== false,
 			'$acctEmail' => (($aid !== false) ? App::$account['account_email'] : ''),
-			'$queryStr' => array_map(fn($str) => htmlspecialchars($str, ENT_QUOTES), $_GET),
+			'$txData' => App::$cache['shop_payment_data'] ?? [], // array_map(fn($str) => htmlspecialchars($str, ENT_QUOTES), $_GET),
+			'$paymentAmt' => htmlspecialchars($_GET['amt'], ENT_QUOTES),
 			'$plans' => \Shop::_PLANS,
 			'$termLength' => \Shop::_TERM_LENGTH,
 			'$termUnits' => \Shop::_TERM_UNITS,

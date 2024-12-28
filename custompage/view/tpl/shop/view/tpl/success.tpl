@@ -84,54 +84,56 @@
     <div class="cs-container">
         <div class="cs-content">
             <h3>Thank you for your payment!</h3>
-            <p class="cs-text pb-3">We've received your payment, and your subscription has automatically been activated.<br><a href="{{$plans[$queryStr['amt']]}}">Start enjoying your subscriber-exclusive content now!</a></p>
-            <h5 class="pt-3 mb-0">Transaction Details</h5>
-            <table class="cs-transaction-details">
-                <tr>
-                    <th>Detail</th>
-                    <th>Value</th>
-                </tr>
-                <tr>
-                    <td>Transaction ID</td>
-                    <td>{{$queryStr['tx']}}</td>
-                </tr>
-                <tr>
-                    <td>Payment Status</td>
-                    <td>{{$queryStr['st']}}</td>
-                </tr>
-                <tr>
-                    <td>Amount</td>
-                    <td>{{$queryStr['amt']}} {{$queryStr['cc']}}</td>
-                </tr>
-                <tr>
-                    <td>Plan</td>
-                    <td>{{ucfirst($plans[$queryStr['amt']])}} ({{$termLength}} {{$termUnits}})</td>
-                </tr>
-                <tr>
-                    <td>Account Email</td>
-                    <td>{{$acctEmail}}</td>
-                </tr>
-                <tr>
-                    <td>Payment Date</td>
-                    <td>
-                        {{if empty($duplicate)}}
-                            {{date("Y-m-d H:i:s", time())}}
-                        {{else}}
-                            {{$duplicate['sub_created']}}
-                        {{/if}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>Expiry Date</td>
-                    <td>
-                        {{if empty($duplicate)}}
-                            {{date("Y-m-d H:i:s", strtotime("+1 $termUnits"))}}
-                        {{else}}
-                            {{$duplicate['sub_expires']}}
-                        {{/if}}
-                    </td>
-                </tr> 
-            </table>           
+            <p class="cs-text pb-3">We've received your payment, and your subscription has automatically been activated.<br><a href="{{$plans[$paymentAmt]}}">Start enjoying your subscriber-exclusive content now!</a></p>
+            {{if !empty($txData)}}
+                <h5 class="pt-3 mb-0">Transaction Details</h5>
+                <table class="cs-transaction-details">
+                    <tr>
+                        <th>Detail</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Transaction ID</td>
+                        <td>{{$txData['txn_id']}}</td>
+                    </tr>
+                    <tr>
+                        <td>Payment Status</td>
+                        <td>{{strtoupper($txData['payment_status'])}}</td>
+                    </tr>
+                    <tr>
+                        <td>Amount</td>
+                        <td>{{$txData['payment_gross']}} {{$txData['mc_currency']}}</td>
+                    </tr>
+                    <tr>
+                        <td>Plan</td>
+                        <td>{{ucfirst($plans[$txData['payment_gross']])}} ({{$termLength}} {{$termUnits}})</td>
+                    </tr>
+                    <tr>
+                        <td>Account Email</td>
+                        <td>{{$acctEmail}}</td>
+                    </tr>
+                    <tr>
+                        <td>Payment Date</td>
+                        <td>
+                            {{if empty($duplicate)}}
+                                {{date("Y-m-d H:i:s", time())}}
+                            {{else}}
+                                {{$duplicate['sub_created']}}
+                            {{/if}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Expiry Date</td>
+                        <td>
+                            {{if empty($duplicate)}}
+                                {{date("Y-m-d H:i:s", strtotime("+1 $termUnits"))}}
+                            {{else}}
+                                {{$duplicate['sub_expires']}}
+                            {{/if}}
+                        </td>
+                    </tr> 
+                </table> 
+            {{/if}}          
         </div>
     </div>
 </section>
