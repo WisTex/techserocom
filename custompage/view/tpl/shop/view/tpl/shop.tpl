@@ -125,15 +125,20 @@
                         <li class="cs-li">Outstanding Support</li>
                         <li class="cs-li">Happy Customers</li>
                     </ul>
-                    <form action="https://www.sandbox.paypal.com/ncp/payment/FJW8L9SSUNZJQ" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+                    <form action="https://www.{{$sandbox}}paypal.com/cgi-bin/webscr" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
                         {{if $isLoggedIn}}
+                            <input type="hidden" name="cmd" value="_s-xclick" />
+                            <input type="hidden" name="hosted_button_id" value="3Z8YV3SYCLR56" />
+                            <input type="hidden" name="currency_code" value="USD" />
+                            <input type="hidden" name="item_name" value="Premium Plan" />
+                            <input type="hidden" name="custom" value="{{$aid}}" />
                             <a href="#" class="cs-button-transparent" onclick="this.parentElement.submit(); return false;">Get Now</a>
                         {{else}}
                             <a href="login" class="cs-button-transparent" style="line-height: 1.5rem; padding: 1rem 3rem;">Register / Login to Buy</a>
                         {{/if}}
                         <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
                         <section> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
-                    </form>                                       
+                    </form>                                                           
                 </div>
             </li>
             <li class="cs-item">
@@ -158,15 +163,20 @@
                         <li class="cs-li">Custom Social Media Site</li>
                         <li class="cs-li">Possibilities are Endless</li>
                     </ul>
-                    <form action="https://www.sandbox.paypal.com/ncp/payment/LVHY9TQRNGHJU" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+                    <form action="https://www.{{$sandbox}}paypal.com/cgi-bin/webscr" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
                         {{if $isLoggedIn}}
+                            <input type="hidden" name="cmd" value="_s-xclick" />
+                            <input type="hidden" name="hosted_button_id" value="YQQ9LXCGN784Q" />
+                            <input type="hidden" name="currency_code" value="USD" />  
+                            <input type="hidden" name="item_name" value="Starter Plan" />
+                            <input type="hidden" name="custom" value="{{$aid}}" />
                             <a href="#" class="cs-button-transparent" onclick="this.parentElement.submit(); return false;">Get Now</a>
                         {{else}}
                             <a href="login" class="cs-button-transparent" style="line-height: 1.5rem; padding: 1rem 3rem;">Register / Login to Buy</a>
-                        {{/if}}                        
+                        {{/if}}                     
                         <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
                         <section> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
-                    </form>                                       
+                    </form>                                                           
                 </div>
             </li>
         </ul>

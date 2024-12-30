@@ -40,6 +40,8 @@ class Shop extends Controller {
 		$aid = get_account_id();
 		$content = replace_macros(get_markup_template($tpl . ".tpl", 'addon/custompage/view/tpl/shop'), [
 			'$isLoggedIn' => $aid !== false,
+			'$aid' => (string)$aid,
+			'$sandbox' => ((\Shop::_PAYPAL_SANDBOX) ? 'sandbox.' : ''),
 			'$acctEmail' => (($aid !== false) ? App::$account['account_email'] : ''),
 			'$txData' => App::$cache['shop_payment_data'] ?? [], // array_map(fn($str) => htmlspecialchars($str, ENT_QUOTES), $_GET),
 			'$paymentAmt' => htmlspecialchars($_GET['amt'], ENT_QUOTES),
